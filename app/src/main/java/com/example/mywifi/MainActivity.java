@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -47,6 +48,27 @@ public class MainActivity extends AppCompatActivity {
         btnSend = findViewById(R.id.btnSend);
 
         tvMessages = findViewById(R.id.tvMessages);
+        // tvMessages에 ScrollingMovementMethod 설정
+        tvMessages.setMovementMethod(new ScrollingMovementMethod());
+
+        // 내용이 추가될 때마다 ScrollView를 하단으로 스크롤
+//        tvMessages.addTextChangedListener(new android.text.TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//            }
+//
+//            @Override
+//            public void afterTextChanged(android.text.Editable s) {
+//                tvMessages.post(() -> tvMessages.scrollTo(0, tvMessages.getBottom()));
+//            }
+//        });
+
+        //키패드가 차지한 부분을 화면에 보여주기 위해 ScrollView를 최하단으로 스크롤
+        //tvMessages.post(() -> tvMessages.scrollTo(0, tvMessages.getBottom()));
 
         // Display device IP address
         // Display device IP address
@@ -127,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void sendMessage(String message) {
         runOnUiThread(() -> tvMessages.append("\nMe: " + message)); // Display the sent message on the screen
+
         new Thread(() -> {
             if (out != null) {
                 out.println(message);

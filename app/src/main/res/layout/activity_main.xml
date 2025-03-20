@@ -13,10 +13,10 @@
         android:textSize="18sp" />
 
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -25,12 +25,12 @@
 
         <EditText
             android:id="@+id/etServerIp"
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:hint="Enter Server IP Address"
-            android:text="192.168."
-            android:inputType="text" />
+            android:inputType="text"
+            android:text="192.168." />
     </LinearLayout>
 
 
@@ -47,19 +47,23 @@
         android:layout_height="wrap_content"
         android:hint="Enter message"
         android:inputType="text" />
+
     <Button
         android:id="@+id/btnSend"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Send" />
-    <TextView
+
+
+    <EditText
         android:id="@+id/tvMessages"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Messages:"
+        android:layout_marginTop="16dp"
+        android:background="#F8EE99"
+        android:gravity="top|start"
+        android:hint="Received data will appear here"
         android:inputType="textMultiLine"
         android:scrollbarAlwaysDrawVerticalTrack="true"
-        android:scrollbars="vertical|horizontal"
-        android:textSize="18sp" />
-
+        android:scrollbars="vertical|horizontal" />
 </LinearLayout>
